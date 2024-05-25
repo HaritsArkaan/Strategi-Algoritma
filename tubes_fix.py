@@ -78,10 +78,12 @@ while not brute_status or not div_status :
     div_iterasi.write(f'Iterasi ke-{i}')
 
     if div_status == False:
+        i +=1
         end_time_div = time.time()
         div_duration = end_time_div - start_time_div
 
     if brute_status == False:
+        j +=1
         end_time_brute = time.time()
         brute_duration = end_time_brute - start_time_brute
     
@@ -90,11 +92,5 @@ while not brute_status or not div_status :
 
     guessed_brute, brute_status = brute_force(guessed_brute, true_digit)
     guessed_div, div_status, left, right = divide_and_conquer(guessed_div, true_digit, left, right)
-    
-    if div_status == False:
-        i +=1
 
-    if brute_status == False:
-        j +=1
-    
     time.sleep(0.1)
